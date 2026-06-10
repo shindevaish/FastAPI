@@ -29,6 +29,7 @@ def view_patient(patient_id: str = Path(..., description = 'The ID of the patien
         return data[patient_id]
     raise HTTPException(status_code = 404, detail = f"Patient with ID {patient_id} not found")
 
+# sort data by height, weight or bmi in ascending or descending order
 @app.get("/sort")
 def sort_patients(sort_by: str = Query(..., description = 'Sort on the basis of height, weight or bmi'), sort_order: str = Query('asc', description = 'Sort in asc or desc order')):
 
