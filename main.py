@@ -23,7 +23,7 @@ def view():
 
 # view data by patient id
 @app.get("/view/{patient_id}")
-def view_patient(patient_id: str = Path(..., description = 'The ID of the patient in the DB', example = 'P001')):
+def view_patient(patient_id: str = Path(..., description = 'The ID of the patient in the DB', examples = 'P001')):
     data = load_data()
     if patient_id in data:
         return data[patient_id]
