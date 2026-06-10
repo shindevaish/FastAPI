@@ -11,7 +11,7 @@ class Patient(BaseModel):
     name: Annotated[str, Field(..., description = 'Name of the patient')]
     city: Annotated[str, Field(..., description = 'City of the patient')]
     age: Annotated[int, Field(..., gt = 0, lt = 110, description = 'Age of the patient')]
-    gender: Annotated[Literal['Male', 'Female', 'Other'], Field(..., description = 'Gender of the patient')]
+    gender: Annotated[Literal['Male', 'Female', 'Others'], Field(..., description = 'Gender of the patient')]
     height: Annotated[float, Field(..., gt = 0, description = 'Height of the patient in mtrs')]
     weight: Annotated[float, Field(..., gt = 0, description = 'Weight of the patient in kgs')]
 
