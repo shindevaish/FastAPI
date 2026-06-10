@@ -4,7 +4,6 @@ from pydantic import BaseModel, Field, computed_field
 from typing import Annotated, Literal
 import json
 
-
 class Patient(BaseModel):
     
     id: Annotated[str, Field(..., description = 'ID of the patient', example = 'P001')]
@@ -32,12 +31,15 @@ class Patient(BaseModel):
         else:
             return 'Obese'
 
+
 app = FastAPI()
 
+# load data
 def load_data():
     with open('patients.json', 'r') as f:
         return json.load(f)
 
+# save data
 def save_data(data):
     with open('patients.json', 'w') as f:
         json.dump(data, f)
