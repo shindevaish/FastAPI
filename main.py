@@ -41,7 +41,7 @@ def sort_patients(sort_by: str = Query(..., description = 'Sort on the basis of 
         raise HTTPException(status_code = 400, detail = f"Invalid order. Select between asc or desc")
 
     data = load_data()
-    order = True if sort_order == "desc" else False
+    order = True if sort_order == 'desc' else False
     sorted_data = sorted(data.values(), key = lambda x: x.get(sort_by, 0), reverse = order)
 
     return sorted_data
