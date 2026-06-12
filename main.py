@@ -4,6 +4,7 @@ from pydantic import BaseModel, Field, computed_field
 from typing import Annotated, Literal, Optional
 import json
 
+# patient class
 class Patient(BaseModel):
     
     id: Annotated[str, Field(..., description = 'ID of the patient', example = 'P001')]
