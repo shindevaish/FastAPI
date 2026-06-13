@@ -111,3 +111,31 @@ def create_patient(patient: Patient):
 
     # return success message with patient id
     return JSONResponse(status_code = 201, content = {'message': f"Patient with ID {patient.id} created successfully"})
+
+@app.put('/edit/{patient_id}')
+def update_patient(patient_id: str, patient_update: PatientUpdate):
+
+    data = load_data()
+
+    if patient_id not in data:
+        raise HTTPException(status_code = 404, detail = f"Patient with ID {patient_id} not found")
+    
+    existing_patient_data = data[patient_id]
+
+    patient_update_data = patient_update.model_dump(exclude_unset = True)
+
+    # update existing patient data with new data
+    for key, value in patient_update_data.items():
+        existing_patient_data[key] = value
+    
+    # existing_patient_data -> pydantic object -> update bmi + verdict
+    existing_patient_data['id'] = patient_id
+    patient_pydantic_obj = Patient(**existing_patient_data)
+    # pydantic object -> dict
+    existing_patient_data = patient_pydantic_obj.model_dump(exclude = ['id'])
+
+    data[patient_id] = existing_patient_data
+    # save updated data
+    save_data(data)
+
+    return JSONResponse(status_code = 200, content = {'message': f"Patient with ID {patient_id} updated successfully"})
