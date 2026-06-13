@@ -113,6 +113,7 @@ def create_patient(patient: Patient):
     # return success message with patient id
     return JSONResponse(status_code = 201, content = {'message': f"Patient with ID {patient.id} created successfully"})
 
+# update patient record by id
 @app.put('/edit/{patient_id}')
 def update_patient(patient_id: str, patient_update: PatientUpdate):
 
@@ -141,7 +142,7 @@ def update_patient(patient_id: str, patient_update: PatientUpdate):
 
     return JSONResponse(status_code = 200, content = {'message': f"Patient with ID {patient_id} updated successfully"})
 
-
+# delete patient record by id
 @app.delete('/delete/{patient_id}')
 def delete_patient(patient_id: str):
     data = load_data()
