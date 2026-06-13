@@ -140,3 +140,6 @@ def update_patient(patient_id: str, patient_update: PatientUpdate):
     save_data(data)
 
     return JSONResponse(status_code = 200, content = {'message': f"Patient with ID {patient_id} updated successfully"})
+
+
+@app.delete('/delete/{patient_id}')
