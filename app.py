@@ -32,7 +32,7 @@ class UserInput(BaseModel):
     smoker: Annotated[bool, Field(..., description = 'Is user a Smoker')]
     city: Annotated[str, Field(..., description = 'The city that the user belongs to')]
     occupation: Annotated[Literal['retired', 'freelancer', 'student', 'government_job',
-       'business_owner', 'unemployed', 'private_job'], Field(..., gt = 0, description = 'Occupation of the user')]
+       'business_owner', 'unemployed', 'private_job'], Field(..., description = 'Occupation of the user')]
     
     @computed_field
     @property
