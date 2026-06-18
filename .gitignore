@@ -2,3 +2,4 @@ patients.json
 __pycache__
 insurance.csv
 model.pkl
+._fastapi_ml_model.ipynb
