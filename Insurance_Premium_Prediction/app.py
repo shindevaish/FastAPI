@@ -9,6 +9,9 @@ import pandas as pd
 with open('Insurance_Premium_Prediction/model.pkl', 'rb') as f:
     model = pickle.load(f)
 
+# MLFlow
+MODEL_VERSION = '1.0.0'
+
 app = FastAPI()
 
 tier_1_cities = ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune"]
@@ -84,7 +87,11 @@ def home():
 # machine readable
 @app.get('/health')
 def health_check():
-    return {'status' : 'OK'}
+    return {
+        'status' : 'OK',
+        'version' : MODEL_VERSION,
+        'model_loaded' : model is not None
+    }
 
 @app.post('/predict')
 def predict_premium(data: UserInput):
