@@ -1,9 +1,8 @@
 from fastapi import FastAPI
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel, computed_field, Field, field_validator
-from typing import Literal, Annotated
 import pickle 
 import pandas as pd
+from Insurance_Premium_Prediction.schema.user_input import UserInput
 
 # import the ml model
 with open('Insurance_Premium_Prediction/model.pkl', 'rb') as f:
