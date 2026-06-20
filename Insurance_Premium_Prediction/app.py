@@ -93,6 +93,7 @@ def health_check():
         'model_loaded' : model is not None
     }
 
+# prediction endpoint
 @app.post('/predict')
 def predict_premium(data: UserInput):
 
