@@ -1,3 +1,6 @@
+from pydantic import BaseModel, computed_field, Field, field_validator
+from typing import Literal, Annotated
+
 tier_1_cities = ["Mumbai", "Delhi", "Bangalore", "Chennai", "Kolkata", "Hyderabad", "Pune"]
 tier_2_cities = [
     "Jaipur", "Chandigarh", "Indore", "Lucknow", "Patna", "Ranchi", "Visakhapatnam", "Coimbatore",
