@@ -15,4 +15,4 @@ COPY . .
 EXPOSE 8000
 
 # Command to start FastAPI application
-CMD ["uvicorn", "Insurance_Premium_Prediction.app:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "Insurance_Premium_Prediction.app:app", "--host", "0.0.0.0", "--port", "8005"]
