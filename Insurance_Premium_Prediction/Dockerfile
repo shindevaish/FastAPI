@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r Insurance_Premium_Prediction/requirements.txt
 COPY . .
 
 # Expose the application port
-EXPOSE 8000
+EXPOSE 8001
 
 # Command to start FastAPI application
 CMD ["uvicorn", "Insurance_Premium_Prediction.app:app", "--host", "0.0.0.0", "--port", "8005"]
