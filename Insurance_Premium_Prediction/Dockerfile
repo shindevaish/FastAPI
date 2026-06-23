@@ -1,18 +1,17 @@
-# Use Python 3.11 base image
 FROM python:3.11-slim
 
-# Set working directory
-WORKDIR /Insurance_Premium_Prediction/app
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
 
-# Copy requirements and install dependencies
+WORKDIR /app
+
 COPY requirements.txt .
-RUN pip install --no-cache-dir -r Insurance_Premium_Prediction/requirements.txt
 
-# Copy rest of application code
+RUN pip install --upgrade pip && \
+    pip install --no-cache-dir -r requirements.txt
+
 COPY . .
 
-# Expose the application port
-EXPOSE 8001
+EXPOSE 8000
 
-# Command to start FastAPI application
-CMD ["uvicorn", "Insurance_Premium_Prediction.app:app", "--host", "0.0.0.0", "--port", "8005"]
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
