@@ -1,4 +1,4 @@
 patients.json
 __pycache__
-insurance.csv
+Insurance_Premium_Prediction/insurance.csv
 model.pkl
